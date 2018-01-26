@@ -1,17 +1,21 @@
+import random
+l=[]
+for i in range(0,100000000):
+    l.append(random.randint(1,1000000000))
+def sort(array):
+    less = []
+    greater = []
+    equals=[]
+    if len(array) > 1:
+        pivot = array[len(array)-1]
+        for x in array:
+            if x < pivot:
+                less.append(x)
+            if x==pivot:
+                equals.append(x)
+            if x > pivot:
+                greater.append(x)
+        return sort(less)+equals+sort(greater)
+    else:
+        return array
 
->>> def quicks(list,low,high):
-	i=low,j=high-1
-	pivot=high
-	if(i<j):
-		while(list[i]<pivot):
-			i=i+1
-		while(list[j]>pivot):
-			j=j-1
-		if(i<j):
-			(list[i],list[j])=(list[j],list[i])
-		(list[j],list[pivot])=(list[pivot],list[j])
-		quicks(list,0,j)
-		quicks(list,j+1,len(list))
-
-		
->>> 
