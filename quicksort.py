@@ -1,8 +1,4 @@
-import random
-l=[]
-for i in range(0,100000000):
-    l.append(random.randint(1,1000000000))
-def sort(array):
+def quicksort(array):
     less = []
     greater = []
     equals=[]
@@ -15,7 +11,16 @@ def sort(array):
                 equals.append(x)
             if x > pivot:
                 greater.append(x)
-        return sort(less)+equals+sort(greater)
+        return quicksort(less)+equals+quicksort(greater)
     else:
         return array
-
+    
+def main():
+    l=[]
+    print("enter elements to sort separated with space")
+    l=list(map(int,input().split(" ")))
+    result=quicksort(l)
+    print(*result,sep=" ")
+    
+if __name__ == '__main__':
+    main()
